@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using FeedingTime.Models;
 
 namespace FeedingTime.Data
 {
@@ -12,5 +13,8 @@ namespace FeedingTime.Data
             : base(options)
         {
         }
+        public DbSet<FeedingTime.Models.Animal> Animal { get; set; }
+        public DbSet<FeedingTime.Models.StaffMember> StaffMembers { get; set; }
+        public DbSet<FeedingTime.Models.Food> Food { get; set; }
     }
 }

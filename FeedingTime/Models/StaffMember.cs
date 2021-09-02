@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FeedingTime.Models
 {
-    public class StaffMembers
+    public class StaffMember
     {
-        public int StaffMembersID { get; set; }
+        public int StaffMemberID { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
@@ -46,7 +46,7 @@ namespace FeedingTime.Models
         public int PhoneNum { get; set; }
 
 
-        public Animals Animal { get; set; }
+        public Animal Animal { get; set; }
 
     }
 }
