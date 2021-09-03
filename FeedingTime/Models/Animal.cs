@@ -30,7 +30,7 @@ namespace FeedingTime.Models
 
 
         [Required]
-        [Display(Name = "Age Of Animal")]
+        [Display(Name = "Animals Age")]
         [StringLength(50)]
         public string AgeOfAnimal { get; set; }
 
@@ -49,7 +49,7 @@ namespace FeedingTime.Models
         [Display(Name = "Animal Checkup")]
         public DateTime AnimalCheckup { get; set; }
 
-        public ICollection<StaffMember> StaffMembers { get; set; }
+        public ICollection<StaffMember> StaffMember { get; set; }
     }
 }
 

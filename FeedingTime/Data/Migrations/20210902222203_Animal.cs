@@ -27,10 +27,10 @@ namespace FeedingTime.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StaffMembers",
+                name: "StaffMember",
                 columns: table => new
                 {
-                    StaffMembersID = table.Column<int>(type: "int", nullable: false)
+                    StaffMemberID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -44,9 +44,9 @@ namespace FeedingTime.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StaffMembers", x => x.StaffMembersID);
+                    table.PrimaryKey("PK_StaffMember", x => x.StaffMemberID);
                     table.ForeignKey(
-                        name: "FK_StaffMembers_Animal_AnimalID",
+                        name: "FK_StaffMember_Animal_AnimalID",
                         column: x => x.AnimalID,
                         principalTable: "Animal",
                         principalColumn: "AnimalID",
@@ -54,15 +54,15 @@ namespace FeedingTime.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_StaffMembers_AnimalID",
-                table: "StaffMembers",
+                name: "IX_StaffMember_AnimalID",
+                table: "StaffMember",
                 column: "AnimalID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "StaffMembers");
+                name: "StaffMember");
 
             migrationBuilder.DropTable(
                 name: "Animal");
