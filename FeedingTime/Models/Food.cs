@@ -37,10 +37,9 @@ using System.Threading.Tasks;
             public DateTime ExpiryDate { get; set; }
 
 
-            public Animals Animal { get; set; }
+            public Animal Animal { get; set; }
 
 
 
         }
     }
-}

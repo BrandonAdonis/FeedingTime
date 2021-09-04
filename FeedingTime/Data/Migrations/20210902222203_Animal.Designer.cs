@@ -4,14 +4,16 @@ using FeedingTime.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FeedingTime.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210902222203_InitalCreate")]
+    partial class InitalCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,22 +29,16 @@ namespace FeedingTime.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AgeOfAnimal")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("AnimalCheckup")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("AnimalName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Category")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateRegistered")
                         .HasColumnType("datetime2");
@@ -51,58 +47,16 @@ namespace FeedingTime.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Habitat")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AnimalID");
 
                     b.ToTable("Animal");
                 });
 
-            modelBuilder.Entity("FeedingTime.Models.Food", b =>
+            modelBuilder.Entity("FeedingTime.Models.StaffMembers", b =>
                 {
-                    b.Property<int>("FoodID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AllergiesIngredients")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("AnimalID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ExpiryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FoodName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("FoodType")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Nutrients")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("FoodID");
-
-                    b.HasIndex("AnimalID");
-
-                    b.ToTable("Food");
-                });
-
-            modelBuilder.Entity("FeedingTime.Models.StaffMember", b =>
-                {
-                    b.Property<int>("StaffMemberID")
+                    b.Property<int>("StaffMembersID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -143,7 +97,7 @@ namespace FeedingTime.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("StaffMemberID");
+                    b.HasKey("StaffMembersID");
 
                     b.HasIndex("AnimalID");
 
@@ -350,16 +304,7 @@ namespace FeedingTime.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("FeedingTime.Models.Food", b =>
-                {
-                    b.HasOne("FeedingTime.Models.Animal", "Animal")
-                        .WithMany()
-                        .HasForeignKey("AnimalID");
-
-                    b.Navigation("Animal");
-                });
-
-            modelBuilder.Entity("FeedingTime.Models.StaffMember", b =>
+            modelBuilder.Entity("FeedingTime.Models.StaffMembers", b =>
                 {
                     b.HasOne("FeedingTime.Models.Animal", "Animal")
                         .WithMany("StaffMembers")
