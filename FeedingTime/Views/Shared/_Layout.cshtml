@@ -6,9 +6,10 @@
     <title>@ViewData["Title"] - FeedingTime</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
     <style>
 
-
+        /* nav bar buttons */
         .btn {
             box-sizing: border-box;
             -webkit-appearance: none;
@@ -39,6 +40,7 @@
             .btn:hover, .btn:focus {
                 color: #fff;
                 outline: 0;
+
             }
 
         .third {
@@ -51,37 +53,57 @@
 
             .third:hover {
                 box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+                
             }
+
+        /* Background img*/
+        .HomeButton {
+            position: absolute;
+            top: 8px;
+            left: 40px;
+        }
+
+        .Footer2{
+            color:black;
+            font-size:15px;
+
+        }
+
+
+
 
     </style>
 
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container">
-                <a href="Home"> <img src="~/Img/Home Button.PNG" alt="Home Button" style="width:300px;height:100px;"> </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <div class="HomeButton">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"> <img src="~/Img/Home Button.PNG" alt="Home Button" style="width:300px;height:100px;border-radius: 50%; "> </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                </div>
+
+
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Animal" asp-action="">Animals</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="StaffMember" asp-action="">Staff</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Animal" asp-action="">Animals</a>
                         </li>
                         <li class="nav-item">
-
-                            <form action="Home">
-                                <input class="btn third" type="submit" value="Food" />
-                            </form>
+                            <a class="nav-link text-light" asp-area="" asp-controller="StaffMember" asp-action="">Staff</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Food" asp-action="">Food</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -96,7 +118,7 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="Footer2">
             &copy; 2021 - FeedingTime - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
