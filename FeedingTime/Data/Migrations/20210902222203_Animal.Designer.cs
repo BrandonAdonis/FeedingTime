@@ -54,7 +54,7 @@ namespace FeedingTime.Data.Migrations
                     b.ToTable("Animal");
                 });
 
-            modelBuilder.Entity("FeedingTime.Models.StaffMembers", b =>
+            modelBuilder.Entity("FeedingTime.Models.StaffMember", b =>
                 {
                     b.Property<int>("StaffMembersID")
                         .ValueGeneratedOnAdd()
@@ -304,7 +304,7 @@ namespace FeedingTime.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("FeedingTime.Models.StaffMembers", b =>
+            modelBuilder.Entity("FeedingTime.Models.StaffMember", b =>
                 {
                     b.HasOne("FeedingTime.Models.Animal", "Animal")
                         .WithMany("StaffMembers")
