@@ -19,6 +19,16 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<form asp-controller="Animals" asp-action="Index">
+    <p>
+        Animal <input type="text" name="searchTerm" />
+        @*<input type="submit" value="Search"/>*@
+        <button type="submit" class="btn btn-primary">Search</button>
+    </p>
+</form>
+
+
 <table class="table">
     <thead>
         <tr>
