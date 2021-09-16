@@ -47,7 +47,21 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+
+
+        @if (Model.Count() == 0)
+        {
+                <tr class="alert-danger"> 
+                    <td colspan="7">no result found...</td>
+            </tr>
+        }
+        else
+        {
+
+
+
+@foreach (var item in Model)
+{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.AnimalName)
@@ -77,5 +91,6 @@
             </td>
         </tr>
 }
+        }
     </tbody>
 </table>

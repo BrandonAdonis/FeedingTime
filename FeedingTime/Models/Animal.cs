@@ -37,11 +37,13 @@ namespace FeedingTime.Models
 
         [Required]
         [Display(Name = "Date Registered")]
+        [DataType(DataType.Date)]
         public DateTime DateRegistered { get; set; }
 
 
         [Required]
         [Display(Name = "Feeding Time")]
+        [DataType(DataType.Time)]
         public DateTime FeedingTime { get; set; }
 
 
