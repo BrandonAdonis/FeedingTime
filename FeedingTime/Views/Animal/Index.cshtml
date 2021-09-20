@@ -6,15 +6,13 @@
 
 
 <style>
-    
-    table{
-        background-color:#e68317;
-    }
 
+    table {
+        background-color: #e68317;
+    }
 </style>
 
-
-<h1>Index</h1>
+<h1>Animal List</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -49,7 +47,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FeedingTime)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.AnimalCheckup)
             </th>
@@ -57,42 +54,28 @@
         </tr>
     </thead>
     <tbody>
-
-
-        @if (Model.Count() == 0)
+        @foreach (var item in Model)
         {
-                <tr class="alert-danger"> 
-                    <td colspan="7">no result found...</td>
-            </tr>
-        }
-        else
-        {
-
-
-
-@foreach (var item in Model)
-{
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.AnimalName)
+                @Html.DisplayNameFor(model => model.AnimalName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Habitat)
+                @Html.DisplayNameFor(model => model.Habitat)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category)
+                @Html.DisplayNameFor(model => model.Category)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AgeOfAnimal)
+                @Html.DisplayNameFor(model => model.AgeOfAnimal)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateRegistered)
+                @Html.DisplayNameFor(model => model.DateRegistered)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FeedingTime)
-            </td>
+                @Html.DisplayNameFor(model => model.FeedingTime)
             <td>
-                @Html.DisplayFor(modelItem => item.AnimalCheckup)
+                @Html.DisplayNameFor(model => model.AnimalCheckup)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.AnimalID">Edit</a> |
@@ -100,7 +83,6 @@
                 <a asp-action="Delete" asp-route-id="@item.AnimalID">Delete</a>
             </td>
         </tr>
-}
         }
     </tbody>
 </table>

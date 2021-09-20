@@ -20,7 +20,6 @@ namespace FeedingTime.Controllers
         }
 
         // GET: Animal
-
         public async Task<IActionResult> Index(string searchTerm)
         {
             var animals = from s in _context.Animal
